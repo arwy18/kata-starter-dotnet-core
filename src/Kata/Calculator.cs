@@ -1,3 +1,6 @@
+using System;
+using System.Runtime.Serialization;
+
 namespace Kata
 {
     public class Calculator
@@ -8,8 +11,15 @@ namespace Kata
             {
                 return 0;                
             }
-
-            return int.Parse(number);
+            else if(number.Length > 1)
+            {
+                var split_numbers = number.Split(",");
+                return int.Parse(split_numbers[0]) + int.Parse(split_numbers[1]);
+            }
+            else
+            {
+                return int.Parse(number);    
+            }
         }
     }
 }
