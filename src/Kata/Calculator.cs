@@ -1,4 +1,5 @@
 using System;
+using System.Linq;
 using System.Runtime.Serialization;
 
 namespace Kata
@@ -11,15 +12,9 @@ namespace Kata
             {
                 return 0;                
             }
-            else if(number.Length > 1)
-            {
-                var split_numbers = number.Split(",");
-                return int.Parse(split_numbers[0]) + int.Parse(split_numbers[1]);
-            }
-            else
-            {
-                return int.Parse(number);    
-            }
+
+            var numbers = number.Split(",").Select(int.Parse);
+            return numbers.Sum();
         }
     }
 }
